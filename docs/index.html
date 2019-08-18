@@ -34,7 +34,8 @@ function shuffle(array) {
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
-
+//shuffle should also erase the move log
+  document.getElementById('moves').innerHTML = ''
   return array;
 }    
     
