@@ -80,24 +80,18 @@ function drop(ev) {
 </head>
 <body>
 
-    <button type="button" onclick="init()">Initialize</button>
+    <button type="button" onclick="init()">Shuffle</button>
 <h2>Drag and Drop</h2>
 
 <div id="div0" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 <p>Drag the image back and forth between the two div elements.</p>
 
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <img src="b.png" draggable="true" ondragstart="drag(event)" id="drag1" width="67" height="100">
-</div>
-
-<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="2.png" draggable="true" ondragstart="drag(event)" id="drag2" width="67" height="100"></div>
-
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
-<div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="9.png" draggable="true" ondragstart="drag(event)" id="drag4" width="67" height="100"></div>
-
-<div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="b.png" draggable="true" ondragstart="drag(event)" id="drag5" width="67" height="100"></div>
+<div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 <h2 style="clear: left;">MOVES</h2>
 <p id='moves'></p>
