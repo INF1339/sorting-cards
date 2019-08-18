@@ -43,7 +43,7 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-  console.log('dragging',ev.target.id)
+  //console.log('dragging',ev.target.id)
   var sofar = document.getElementById('moves').innerHTML
   document.getElementById('moves').innerHTML = sofar + 'Dragging ' + ev.target.id
 
@@ -55,17 +55,17 @@ function init(){
     var cards =[
         '2.png', '3.png', '9.png', 'b.png', 'd.png' 
     ]
-    console.log (cards)
+    //console.log (cards)
     cards = shuffle (cards)
-    console.log (cards)
+    //console.log (cards)
     document.getElementById('div1').innerHTML = '<img src="'+cards[0]+'" draggable="true" ondragstart="drag(event)" id="'+cards[0]+'" width="67" height="100">'
     document.getElementById('div2').innerHTML = '<img src="'+cards[1]+'" draggable="true" ondragstart="drag(event)" id="'+cards[1]+'" width="67" height="100">'
     document.getElementById('div3').innerHTML = '<img src="'+cards[2]+'" draggable="true" ondragstart="drag(event)" id="'+cards[2]+'" width="67" height="100">'
     document.getElementById('div4').innerHTML = '<img src="'+cards[3]+'" draggable="true" ondragstart="drag(event)" id="'+cards[3]+'" width="67" height="100">'
     document.getElementById('div5').innerHTML = '<img src="'+cards[4]+'" draggable="true" ondragstart="drag(event)" id="'+cards[4]+'" width="67" height="100">'
     //shuffle should also erase the move log
-    x = document.getElementById('moves').innerHTML
-    console.log (x)
+    //x = document.getElementById('moves').innerHTML
+    //console.log (x)
     document.getElementById('moves').innerHTML = ''
 }
     
@@ -73,7 +73,7 @@ function init(){
 function drop(ev) {
   ev.preventDefault();
   var data = ev.dataTransfer.getData("text");
-    console.log('dropping on',ev.target.id)
+    //console.log('dropping on',ev.target.id)
     var sofar = document.getElementById('moves').innerHTML
     document.getElementById('moves').innerHTML = sofar + ' & dropping on ' + ev.target.id + '<br />'
   ev.target.appendChild(document.getElementById(data));
