@@ -1,1 +1,105 @@
-t
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+#div0{
+  width: 75px;
+  height: 100px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}
+#div1, #div2 , #div3, #div4, #div5{
+  float: left;
+  width: 75px;
+  height: 100px;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}
+</style>
+<script>
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}    
+    
+function allowDrop(ev) {
+  ev.preventDefault();
+  //console.log('allowDrop dataTransfer ', ev.dataTransfer)
+}
+
+function drag(ev) {
+  console.log('dragging',ev.target.id)
+  var sofar = document.getElementById('moves').innerHTML
+  document.getElementById('moves').innerHTML = sofar + ' & dragging ' + ev.target.id
+
+  ev.dataTransfer.setData("text", ev.target.id);
+  //console.log('filename was ', ev.target)
+}
+
+function init(){
+    var cards =[
+        '2.png', '3.png', '9.png', 'b.png', 'd.png' 
+    ]
+    console.log (cards)
+    cards = shuffle (cards)
+    console.log (cards)
+    document.getElementById('div1').innerHTML = '<img src="'+cards[0]+'" draggable="true" ondragstart="drag(event)" id="'+cards[0]+'" width="67" height="100">'
+    document.getElementById('div2').innerHTML = '<img src="'+cards[1]+'" draggable="true" ondragstart="drag(event)" id="'+cards[1]+'" width="67" height="100">'
+    document.getElementById('div3').innerHTML = '<img src="'+cards[2]+'" draggable="true" ondragstart="drag(event)" id="'+cards[2]+'" width="67" height="100">'
+    document.getElementById('div4').innerHTML = '<img src="'+cards[3]+'" draggable="true" ondragstart="drag(event)" id="'+cards[3]+'" width="67" height="100">'
+    document.getElementById('div5').innerHTML = '<img src="'+cards[4]+'" draggable="true" ondragstart="drag(event)" id="'+cards[4]+'" width="67" height="100">'
+}
+    
+    
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+    console.log('dropping on',ev.target.id)
+    var sofar = document.getElementById('moves').innerHTML
+    document.getElementById('moves').innerHTML = sofar + ' & dropping on ' + ev.target.id + '<br />'
+  ev.target.appendChild(document.getElementById(data));
+    //console.log('files in drop ', ev.target)
+}
+</script>
+</head>
+<body>
+
+    <button type="button" onclick="init()">Initialize</button>
+<h2>Drag and Drop</h2>
+
+<div id="div0" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<p>Drag the image back and forth between the two div elements.</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="b.png" draggable="true" ondragstart="drag(event)" id="drag1" width="67" height="100">
+</div>
+
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="2.png" draggable="true" ondragstart="drag(event)" id="drag2" width="67" height="100"></div>
+
+<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="9.png" draggable="true" ondragstart="drag(event)" id="drag4" width="67" height="100"></div>
+
+<div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="b.png" draggable="true" ondragstart="drag(event)" id="drag5" width="67" height="100"></div>
+
+<h2 style="clear: left;">MOVES</h2>
+<p id='moves'></p>
+</body>
+</html>
