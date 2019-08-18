@@ -34,8 +34,6 @@ function shuffle(array) {
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
   }
-//shuffle should also erase the move log
-  document.getElementById('moves').innerHTML = 'x'
   return array;
 }    
     
@@ -65,6 +63,10 @@ function init(){
     document.getElementById('div3').innerHTML = '<img src="'+cards[2]+'" draggable="true" ondragstart="drag(event)" id="'+cards[2]+'" width="67" height="100">'
     document.getElementById('div4').innerHTML = '<img src="'+cards[3]+'" draggable="true" ondragstart="drag(event)" id="'+cards[3]+'" width="67" height="100">'
     document.getElementById('div5').innerHTML = '<img src="'+cards[4]+'" draggable="true" ondragstart="drag(event)" id="'+cards[4]+'" width="67" height="100">'
+    //shuffle should also erase the move log
+    x = document.getElementById('moves').innerHTML
+    console.log (x)
+    document.getElementById('moves').innerHTML = 'x'
 }
     
     
