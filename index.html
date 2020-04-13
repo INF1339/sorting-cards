@@ -82,24 +82,29 @@ function drop(ev) {
 
     <button type="button" onclick="init()">Initialize</button>
 <h2>Sorting Cards</h2>
-<p>The sort order of these German playing cards is 2,3,4,5,6,7,8,9,10, bauer, dame, konig.  Click "Shuffle" to get a hand of five
-  cards and then sort them by swapping cards by dragging one card to the "swap space" in the top row, moving a card in the hand
-  and then dragging the card from the swap space.</p>
+<p>The sort order of these German playing cards is 2,3,4,5,6,7,8,9,10, bauer, dame, konig.<br />
+  Click "Shuffle" to get a hand of five cards and then sort them by swapping cards by<br />
+  dragging one card to the "swap space" in the top row, moving a card in the hand and<br />
+  then dragging the card from the swap space.</p>
 <div id="spare_position" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 
 
 <div id="position1" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <img src="b.png" draggable="true" ondragstart="drag(event)" id="drag1" width="67" height="100">
+  <img src="b.png" draggable="true" ondragstart="drag(event)" id="from_position1" width="67" height="100">
 </div>
 
-<div id="position2" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="2.png" draggable="true" ondragstart="drag(event)" id="drag2" width="67" height="100"></div>
+<div id="position2" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="2.png" draggable="true" ondragstart="drag(event)" id="from_position2" width="67" height="100"></div>
 
-<div id="position3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="position3" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="3.png" draggable="true" ondragstart="drag(event)" id="from_position3" width="67" height="100"></div>
 
-<div id="position4" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="9.png" draggable="true" ondragstart="drag(event)" id="drag4" width="67" height="100"></div>
+<div id="position4" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="9.png" draggable="true" ondragstart="drag(event)" id="from_position4" width="67" height="100"></div>
 
-<div id="position5" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="b.png" draggable="true" ondragstart="drag(event)" id="drag5" width="67" height="100"></div>
+<div id="position5" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="b.png" draggable="true" ondragstart="drag(event)" id="from_position5" width="67" height="100"></div>
 
 <h2 style="clear: left;">MOVES</h2>
 <p id='moves'></p>
