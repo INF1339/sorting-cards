@@ -44,9 +44,9 @@ function allowDrop(ev) {
 }
 
 function drag(ev) {
-  console.log('dragging',ev.target.id)
+  console.log('Drag',ev.target.id)
   var sofar = document.getElementById('moves').innerHTML
-  document.getElementById('moves').innerHTML = sofar + ' & dragging ' + ev.target.id
+  document.getElementById('moves').innerHTML = sofar + ' Drag ' + ev.target.id
 
   ev.dataTransfer.setData("text", ev.target.id);
   //console.log('filename was ', ev.target)
@@ -59,11 +59,11 @@ function init(){
     console.log (cards)
     cards = shuffle (cards)
     console.log (cards)
-    document.getElementById('position1').innerHTML = '<img src="'+cards[0]+'" draggable="true" ondragstart="drag(event)" id="'+cards[0]+'" width="67" height="100">'
-    document.getElementById('position2').innerHTML = '<img src="'+cards[1]+'" draggable="true" ondragstart="drag(event)" id="'+cards[1]+'" width="67" height="100">'
-    document.getElementById('position3').innerHTML = '<img src="'+cards[2]+'" draggable="true" ondragstart="drag(event)" id="'+cards[2]+'" width="67" height="100">'
-    document.getElementById('position4').innerHTML = '<img src="'+cards[3]+'" draggable="true" ondragstart="drag(event)" id="'+cards[3]+'" width="67" height="100">'
-    document.getElementById('position5').innerHTML = '<img src="'+cards[4]+'" draggable="true" ondragstart="drag(event)" id="'+cards[4]+'" width="67" height="100">'
+    document.getElementById('position_1').innerHTML = '<img src="'+cards[0]+'" draggable="true" ondragstart="drag(event)" id="'+cards[0]+'" width="67" height="100">'
+    document.getElementById('position_2').innerHTML = '<img src="'+cards[1]+'" draggable="true" ondragstart="drag(event)" id="'+cards[1]+'" width="67" height="100">'
+    document.getElementById('position_3').innerHTML = '<img src="'+cards[2]+'" draggable="true" ondragstart="drag(event)" id="'+cards[2]+'" width="67" height="100">'
+    document.getElementById('position_4').innerHTML = '<img src="'+cards[3]+'" draggable="true" ondragstart="drag(event)" id="'+cards[3]+'" width="67" height="100">'
+    document.getElementById('position_5').innerHTML = '<img src="'+cards[4]+'" draggable="true" ondragstart="drag(event)" id="'+cards[4]+'" width="67" height="100">'
 }
     
     
@@ -72,7 +72,7 @@ function drop(ev) {
   var data = ev.dataTransfer.getData("text");
     console.log('dropping on',ev.target.id)
     var sofar = document.getElementById('moves').innerHTML
-    document.getElementById('moves').innerHTML = sofar + ' & dropping on ' + ev.target.id + '<br />'
+    document.getElementById('moves').innerHTML = sofar + ' Drop on ' + ev.target.id + '<br />'
   ev.target.appendChild(document.getElementById(data));
     //console.log('files in drop ', ev.target)
 }
@@ -91,20 +91,20 @@ function drop(ev) {
 
 
 <div id="position1" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <img src="b.png" draggable="true" ondragstart="drag(event)" id="from_position1" width="67" height="100">
+  <img src="b.png" draggable="true" ondragstart="drag(event)" id="from_position_1" width="67" height="100">
 </div>
 
 <div id="position2" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <img src="2.png" draggable="true" ondragstart="drag(event)" id="from_position2" width="67" height="100"></div>
+  <img src="2.png" draggable="true" ondragstart="drag(event)" id="from_position_2" width="67" height="100"></div>
 
 <div id="position3" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <img src="3.png" draggable="true" ondragstart="drag(event)" id="from_position3" width="67" height="100"></div>
+  <img src="3.png" draggable="true" ondragstart="drag(event)" id="from_position_3" width="67" height="100"></div>
 
 <div id="position4" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <img src="9.png" draggable="true" ondragstart="drag(event)" id="from_position4" width="67" height="100"></div>
+  <img src="9.png" draggable="true" ondragstart="drag(event)" id="from_position_4" width="67" height="100"></div>
 
 <div id="position5" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <img src="b.png" draggable="true" ondragstart="drag(event)" id="from_position5" width="67" height="100"></div>
+  <img src="b.png" draggable="true" ondragstart="drag(event)" id="from_position_5" width="67" height="100"></div>
 
 <h2 style="clear: left;">MOVES</h2>
 <p id='moves'></p>
