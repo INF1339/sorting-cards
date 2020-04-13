@@ -2,14 +2,14 @@
 <html>
 <head>
 <style>
-#div0{
+#spare_position{
   width: 75px;
   height: 100px;
   margin: 10px;
   padding: 10px;
   border: 1px solid black;
 }
-#div1, #div2 , #div3, #div4, #div5{
+#position1, #position2 , #position3, #position4, #position5{
   float: left;
   width: 75px;
   height: 100px;
@@ -54,16 +54,16 @@ function drag(ev) {
 
 function init(){
     var cards =[
-        '2.png', '3.png', '9.png', 'b.png', 'd.png' 
+        '2.png', '3.png', '9.png', 'bauer.png', 'dame.png' 
     ]
     console.log (cards)
     cards = shuffle (cards)
     console.log (cards)
-    document.getElementById('div1').innerHTML = '<img src="'+cards[0]+'" draggable="true" ondragstart="drag(event)" id="'+cards[0]+'" width="67" height="100">'
-    document.getElementById('div2').innerHTML = '<img src="'+cards[1]+'" draggable="true" ondragstart="drag(event)" id="'+cards[1]+'" width="67" height="100">'
-    document.getElementById('div3').innerHTML = '<img src="'+cards[2]+'" draggable="true" ondragstart="drag(event)" id="'+cards[2]+'" width="67" height="100">'
-    document.getElementById('div4').innerHTML = '<img src="'+cards[3]+'" draggable="true" ondragstart="drag(event)" id="'+cards[3]+'" width="67" height="100">'
-    document.getElementById('div5').innerHTML = '<img src="'+cards[4]+'" draggable="true" ondragstart="drag(event)" id="'+cards[4]+'" width="67" height="100">'
+    document.getElementById('position1').innerHTML = '<img src="'+cards[0]+'" draggable="true" ondragstart="drag(event)" id="'+cards[0]+'" width="67" height="100">'
+    document.getElementById('position2').innerHTML = '<img src="'+cards[1]+'" draggable="true" ondragstart="drag(event)" id="'+cards[1]+'" width="67" height="100">'
+    document.getElementById('position3').innerHTML = '<img src="'+cards[2]+'" draggable="true" ondragstart="drag(event)" id="'+cards[2]+'" width="67" height="100">'
+    document.getElementById('position4').innerHTML = '<img src="'+cards[3]+'" draggable="true" ondragstart="drag(event)" id="'+cards[3]+'" width="67" height="100">'
+    document.getElementById('position5').innerHTML = '<img src="'+cards[4]+'" draggable="true" ondragstart="drag(event)" id="'+cards[4]+'" width="67" height="100">'
 }
     
     
@@ -83,21 +83,21 @@ function drop(ev) {
     <button type="button" onclick="init()">Initialize</button>
 <h2>Drag and Drop</h2>
 
-<div id="div0" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="spare_position" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 <p>Drag the image back and forth between the two div elements.</p>
 
-<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+<div id="position1" ondrop="drop(event)" ondragover="allowDrop(event)">
   <img src="b.png" draggable="true" ondragstart="drag(event)" id="drag1" width="67" height="100">
 </div>
 
-<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="2.png" draggable="true" ondragstart="drag(event)" id="drag2" width="67" height="100"></div>
+<div id="position2" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="2.png" draggable="true" ondragstart="drag(event)" id="drag2" width="67" height="100"></div>
 
-<div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="position3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-<div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="9.png" draggable="true" ondragstart="drag(event)" id="drag4" width="67" height="100"></div>
+<div id="position4" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="9.png" draggable="true" ondragstart="drag(event)" id="drag4" width="67" height="100"></div>
 
-<div id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="b.png" draggable="true" ondragstart="drag(event)" id="drag5" width="67" height="100"></div>
+<div id="position5" ondrop="drop(event)" ondragover="allowDrop(event)"><img src="b.png" draggable="true" ondragstart="drag(event)" id="drag5" width="67" height="100"></div>
 
 <h2 style="clear: left;">MOVES</h2>
 <p id='moves'></p>
