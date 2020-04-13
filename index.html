@@ -81,11 +81,13 @@ function drop(ev) {
 <body>
 
     <button type="button" onclick="init()">Initialize</button>
-<h2>Drag and Drop</h2>
-
+<h2>Sorting Cards</h2>
+<p>The sort order of these German playing cards is 2,3,4,5,6,7,8,9,10, bauer, dame, konig.  Click "Shuffle" to get a hand of five
+  cards and then sort them by swapping cards by dragging one card to the "swap space" in the top row, moving a card in the hand
+  and then dragging the card from the swap space.</p>
 <div id="spare_position" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
-<p>Drag the image back and forth between the two div elements.</p>
+
 
 <div id="position1" ondrop="drop(event)" ondragover="allowDrop(event)">
   <img src="b.png" draggable="true" ondragstart="drag(event)" id="drag1" width="67" height="100">
