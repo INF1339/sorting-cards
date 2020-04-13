@@ -59,6 +59,7 @@ function init(){
     console.log (cards)
     cards = shuffle (cards)
     console.log (cards)
+    document.getElementById('moves').innerHTML = ''
     document.getElementById('position_1').innerHTML = '<img src="'+cards[0]+'" draggable="true" ondragstart="drag(event)" id="'+cards[0]+'" width="67" height="100">'
     document.getElementById('position_2').innerHTML = '<img src="'+cards[1]+'" draggable="true" ondragstart="drag(event)" id="'+cards[1]+'" width="67" height="100">'
     document.getElementById('position_3').innerHTML = '<img src="'+cards[2]+'" draggable="true" ondragstart="drag(event)" id="'+cards[2]+'" width="67" height="100">'
