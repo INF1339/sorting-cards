@@ -1,113 +1,107 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<style>
-#spare_position{
-  width: 75px;
-  height: 100px;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid black;
-}
-#position1, #position2 , #position3, #position4, #position5{
-  float: left;
-  width: 75px;
-  height: 100px;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid black;
-}
-</style>
+    <style>
+        #spare_position{
+          width: 75px;
+          height: 100px;
+          margin: 10px;
+          padding: 10px;
+          border: 1px solid black;
+        }
+        #position_1, #position_2 , #position_3, #position_4, #position_5{
+          float: left;
+          width: 75px;
+          height: 100px;
+          margin: 10px;
+          padding: 10px;
+          border: 1px solid black;
+        }
+    </style>
 <script>
 function shuffle(array) {
-  var currentIndex = array.length, temporaryValue, randomIndex;
+    var currentIndex = array.length, temporaryValue, randomIndex;
 
-  // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
 
-    // Pick a remaining element...
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex -= 1;
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
 
-    // And swap it with the current element.
-    temporaryValue = array[currentIndex];
-    array[currentIndex] = array[randomIndex];
-    array[randomIndex] = temporaryValue;
-  }
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+        }
 
-  return array;
-}    
+    return array;
+    }    
     
 function allowDrop(ev) {
-  ev.preventDefault();
-  //console.log('allowDrop dataTransfer ', ev.dataTransfer)
-}
+    ev.preventDefault();
+    //console.log('allowDrop dataTransfer ', ev.dataTransfer)
+    }
 
 function drag(ev) {
-  console.log('Drag',ev.target.id)
-  var sofar = document.getElementById('moves').innerHTML
-  document.getElementById('moves').innerHTML = sofar + ' Drag ' + ev.target.id
+    //console.log('Drag',ev.target.id)
+    var sofar = document.getElementById('moves').innerHTML
+    document.getElementById('moves').innerHTML = sofar + ' Drag ' + ev.target.id
 
-  ev.dataTransfer.setData("text", ev.target.id);
-  //console.log('filename was ', ev.target)
-}
+    ev.dataTransfer.setData("text", ev.target.id);
+    //console.log(ev)
+    }
 
 function init(){
-    var cards =[
-        '2.png', '3.png', '9.png', 'bauer.png', 'dame.png' 
-    ]
-    console.log (cards)
+    var cards =['2', '3', '9', 'bauer', 'dame']
     cards = shuffle (cards)
-    console.log (cards)
     document.getElementById('moves').innerHTML = ''
-    document.getElementById('position_1').innerHTML = '<img src="'+cards[0]+'" draggable="true" ondragstart="drag(event)" id="'+cards[0]+'" width="67" height="100">'
-    document.getElementById('position_2').innerHTML = '<img src="'+cards[1]+'" draggable="true" ondragstart="drag(event)" id="'+cards[1]+'" width="67" height="100">'
-    document.getElementById('position_3').innerHTML = '<img src="'+cards[2]+'" draggable="true" ondragstart="drag(event)" id="'+cards[2]+'" width="67" height="100">'
-    document.getElementById('position_4').innerHTML = '<img src="'+cards[3]+'" draggable="true" ondragstart="drag(event)" id="'+cards[3]+'" width="67" height="100">'
-    document.getElementById('position_5').innerHTML = '<img src="'+cards[4]+'" draggable="true" ondragstart="drag(event)" id="'+cards[4]+'" width="67" height="100">'
-}
-    
+    for (var i=0; i<cards.length; i++) {
+        document.getElementById('position_'+(i+1)).innerHTML = '<img src="'+cards[i]+'.png" draggable="true" ondragstart="drag(event)" id="'+cards[i]+'" width="67" height="100">'
+        }
+    }    
     
 function drop(ev) {
-  ev.preventDefault();
-  var data = ev.dataTransfer.getData("text");
-    console.log('dropping on',ev.target.id)
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    //console.log('dropping on',ev.target.id)
     var sofar = document.getElementById('moves').innerHTML
-    document.getElementById('moves').innerHTML = sofar + ' Drop on ' + ev.target.id + '<br />'
-  ev.target.appendChild(document.getElementById(data));
+    document.getElementById('moves').innerHTML = sofar + ' to ' + ev.target.id + '<br />'
+    ev.target.appendChild(document.getElementById(data));
     //console.log('files in drop ', ev.target)
-}
+    }
 </script>
 </head>
 <body>
 
-<button type="button" onclick="init()">Initialize</button>
+<p style="text-align: right; font-size: 0.8em;">See <a href="https://github.com/INF1339/sorting-cards">code on GitHub</a></p>
 <h2>Sorting Cards</h2>
 <p>The sort order of these German playing cards is 2,3,4,5,6,7,8,9,10, bauer, dame, konig.<br />
 Click "Shuffle" to get a hand of five cards and then sort them by swapping cards by<br />
 dragging one card to the "swap space" in the top row, moving a card in the hand and<br />
 then dragging the card from the swap space.</p>
+<button type="button" onclick="init()">Shuffle Cards</button>
   
 <div id="spare_position" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 
 
-<div id="position1" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <img src="b.png" draggable="true" ondragstart="drag(event)" id="from_position_1" width="67" height="100">
+<div id="position_1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="dame.png" draggable="true" ondragstart="drag(event)" id="from_position_1" width="67" height="100">
 </div>
 
-<div id="position2" ondrop="drop(event)" ondragover="allowDrop(event)">
+<div id="position_2" ondrop="drop(event)" ondragover="allowDrop(event)">
   <img src="2.png" draggable="true" ondragstart="drag(event)" id="from_position_2" width="67" height="100"></div>
 
-<div id="position3" ondrop="drop(event)" ondragover="allowDrop(event)">
-  //<img src="3.png" draggable="true" ondragstart="drag(event)" id="from_position_3" width="67" height="100">
+<div id="position_3" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="3.png" draggable="true" ondragstart="drag(event)" id="from_position_3" width="67" height="100"> 
   </div>
 
-<div id="position4" ondrop="drop(event)" ondragover="allowDrop(event)">
+<div id="position_4" ondrop="drop(event)" ondragover="allowDrop(event)">
   <img src="9.png" draggable="true" ondragstart="drag(event)" id="from_position_4" width="67" height="100"></div>
 
-<div id="position5" ondrop="drop(event)" ondragover="allowDrop(event)">
-  <img src="b.png" draggable="true" ondragstart="drag(event)" id="from_position_5" width="67" height="100"></div>
+<div id="position_5" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="bauer.png" draggable="true" ondragstart="drag(event)" id="from_position_5" width="67" height="100"></div>
 
 <h2 style="clear: left;">MOVES</h2>
 <p id='moves'></p>
